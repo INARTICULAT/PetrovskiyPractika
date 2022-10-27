@@ -1,17 +1,13 @@
-try:
-    f1 = open('data.txt', 'r')
-    data1 = ['27', '10', '2022']
-    while True:
-        data = f1.readline().split("-")
-        print(data)
-        if data[0] == '':
-            break
-        if int(data[0]) < int(data1[0]):
-            data1[0] = data[0]
-        if int(data[0]) < int(data1[0]):
-            data1[1] = data[1]
-
-    f1.close()
-    print(data1[0], " - ", data1[1])
-except IOError:
-    print(IOError.with_traceback())
+def openFile():
+    try:
+        f1 = open('data.txt', 'r')
+        while True:
+            data = f1.readlines()
+            print(data)
+            if data[0] != '':
+                return data
+            elif data[0] != '':
+                break
+        f1.close()
+    except IOError:
+        print(IOError.with_traceback())
